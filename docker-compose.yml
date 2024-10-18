@@ -1,0 +1,15 @@
+services:
+    rabbitmq:
+        image: rabbitmq:4.0.2-management
+        container_name: rabbitmq
+        ports:
+            - '5672:5672' # Porta para conexões de cliente
+            - '15672:15672' # Porta para o painel de administração
+        environment:
+            - RABBITMQ_DEFAULT_USER=user # Substitua "user" pelo usuário desejado
+            - RABBITMQ_DEFAULT_PASS=password # Substitua "password" pela senha desejada
+        volumes:
+            - rabbitmq_data:/var/lib/rabbitmq
+
+volumes:
+    rabbitmq_data:
